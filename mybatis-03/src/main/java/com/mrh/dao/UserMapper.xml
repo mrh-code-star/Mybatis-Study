@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace=绑定一个对应的Dao/Mapper接口-->
+<mapper namespace="com.mrh.dao.UserMapper">
+
+
+    <!--    根据ID查询-->
+    <!--<select id="getUserListById" parameterType="int" resultType="user">
+
+        select id, name, pwd as password from mybatis.user where id=#{id};
+    </select>-->
+    <resultMap id="UserMap" type="User">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="pwd" property="password"/>
+    </resultMap>
+    <select id="getUserListById" parameterType="int" resultMap="UserMap">
+        select id, name, pwd
+        from mybatis.user
+        where id = #{id};
+    </select>
+
+</mapper>

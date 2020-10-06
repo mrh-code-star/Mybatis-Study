@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mrh.dao.UserMapper">
+
+    <!--    增加用户信息————add-->
+    <insert id="add" parameterType="user">
+        insert into smbms_user (id, userCode, userName, userPassword, gender, birthday, phone, address, userRole,
+                                createdBy, creationDate, modifyBy, modifyDate)
+        values (id = #{id}, userCode = #{userCode}, userName = #{userName}, userPassword = #{userPassword},
+                gender = #{gender}, birthday = #{birthday}, phone = #{phone}, address = #{address},
+                userRole = #{userRole},
+                createdBy = #{createdBy}, creationDate = #{creationDate}, modifyBy = #{modifyBy},
+                modifyDate = #{modifyDate});
+    </insert>
+</mapper>
